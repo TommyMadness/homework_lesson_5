@@ -1,4 +1,4 @@
-from selene import browser, have, be
+from selene import browser, have, be, command
 
 
 def test_submit_practice_form_by_using_send_keys():
@@ -57,6 +57,7 @@ def test_submit_practice_form_by_using_type():
 
     browser.element('#currentAddress').type('24 Conch Street, Bikini Bottom, Marshall Islands 96970')
 
+    browser.element('#state').perform(command.js.scroll_into_view)
     browser.element('#state').click().element('div[id^="react-select-3-option"]').click()
     browser.element('#city').click().element('div[id^="react-select-4-option"]').click()
 
